@@ -1,5 +1,5 @@
 // dependencies 
-var path = require("path");
+const path = require("path");
 
 module.exports = function(app) {
 // route to the index on load

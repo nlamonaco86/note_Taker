@@ -9,8 +9,11 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//find the html routes function
+//require the html routes function
 require("./routes/htmlR")(app);
+
+//require the API routes function
+// require("./routes/apiR")(app);
 
 //run the server and log the port number to confirm it
 app.listen(PORT, function() {
