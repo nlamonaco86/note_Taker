@@ -15,7 +15,7 @@ app.use(express.static("public"));
 require("./routes/htmlR")(app);
 
 // require the API routes function
-// require("./routes/apiR")(app);
+require("./routes/apirR")(app);
 
 //run the server and log the port number to confirm it
 app.listen(PORT, function() {
