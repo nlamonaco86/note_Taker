@@ -25,14 +25,23 @@ module.exports = (app) => {
     });
 
     //APP.DELETE deletes the selected note
-    //parameterized as per index.js
+    // receive a parametixed query containing the id of a note to delete
     app.delete("/api/notes/:id", (req, res) => {
-        // receive a parametixed query containing the id of a note to delete
-        // read all notes from the db.json file, remove the note with the given id
-      
+        // read all notes from the db.json file, return all notes EXCEPT the target
+        let target = req.params.id;
+        fs.readFile(path.join(__dirname, "../db/db.json"), "utf8", (err, data) => {
+            if (err) throw err
+            noteBook = JSON.parse(data).filter((note) => {
+                return note.id !== target
+            });
 
             //and then rewrite the rest of the notes to the db.json file
-         
+            fs.writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(noteBook), err => {
+                if (err) throw err
+                res.send(noteBook);
+                // console.log("deleted")
+            });
+        });
     });
 };
 
