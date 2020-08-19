@@ -13,7 +13,7 @@ module.exports = function (app) {
 
     //APP.POST creates a new note object, fills it with the user inputs, then pushes it to the notebook array
     app.post("/api/notes", function (req, res) {
-        let note = { title: req.body.title, text: req.body.text };
+        let note = {id: req.body.id, title: req.body.title, text: req.body.text };
 
         noteBook.push(note);
 
@@ -25,7 +25,10 @@ module.exports = function (app) {
     });
 
     //APP.DELETE deletes the selected note
+    //parameterized as per index.js
+    app.delete("/api/notes/:id", function (req, res) {
 
+    });
 
 };
 
