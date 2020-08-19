@@ -1,31 +1,31 @@
-//dependencies
+//dependencies boilerplate
 const path = require("path");
 const fs = require("fs");
-let noteDB = require("../db/db.json");
-
+let noteBook = require("../db/db.json");
 
 module.exports = function (app) {
 
-    
+    //APP.GET retrieves the notes from the notebook when called by AJAX
     app.get("/api/notes", function (req, res) {
-        res.json(noteDB);
-        console.log("success")
+        res.json(noteBook);
+        // console.log("get")
     });
 
-    // //     // app.post new notes to the DB when they save it
-    // app.post('/api/notes', function (req, res) {
-    //     fs.appendFile(noteDB, newNote, function (err, data) {
-    //         if (err) throw err
-    //         console.log("it ran")
-    //         //res.send (or similar) has to be the last line 
-    //         res.send(data)
-       //noteDB.push
-    //     })
-    // })
+    //APP.POST creates a new note object, fills it with the user inputs, then pushes it to the notebook array
+    app.post("/api/notes", function (req, res) {
+        let note = { title: req.body.title, text: req.body.text };
 
-    //     // app.delete from the notes DB when they load it
+        noteBook.push(note);
 
-    //     // overwrite the notes DB to blank when they delete 
+        fs.writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(noteBook), err => {
+            if (err) throw err
+            res.send(note);
+            // console.log("post");
+        });
+    });
+
+    //APP.DELETE deletes the selected note
+
 
 };
 
