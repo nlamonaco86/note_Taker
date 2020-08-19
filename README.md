@@ -12,7 +12,7 @@ To use the application, simply clone the repo to your local machine and install 
 ```
 AS A user, I want to be able to write and save notes
 I WANT to be able to delete notes I've written before
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+SO THAT I can organize my thoughts and keep track of tasks I need completed
 ```
 
 ## Github repo: github.com/nlamonaco86/note_Taker
