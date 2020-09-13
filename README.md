@@ -3,7 +3,7 @@ Nicholas La Monaco
 
 # Note Taker
 
-A functional note taking app that can be used to write, save, and delete notes. It uses an express backend to save and retrieve note data from a JSON file.
+A functional note taking app that can be used to write, save, and delete notes. It uses a Node.js and Express backend to save and retrieve note data from a JSON file.
 
 ## Instructions
 To use the application, simply clone the repo to your local machine and install the dependencies. Run the server, and from there you are ready to begin using the app!
